@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val price = Integer.parseInt(priceText)
         val discount = Integer.parseInt(discountText)
 
-        // TODO: transit to ResultActivity
+        startActivity(ResultActivity.getIntent(this, price, discount))
       }
     }
   }
