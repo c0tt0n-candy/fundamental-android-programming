@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">Calculator</string>
+  <string name="app_name">割引計算機</string>
   <string name="price_label">定価</string>
   <string name="discount_label">割引率</string>
   <string name="btn_calculate">計算する</string>

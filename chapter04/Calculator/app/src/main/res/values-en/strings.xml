@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Discount Calc</string>
+  <string name="price_label">price</string>
+  <string name="discount_label">discount rate</string>
+  <string name="btn_calculate">calculate</string>
+  <string name="price_error">input price</string>
+  <string name="discount_error">input discount rate</string>
+  <string name="expression_label">%2$d%% off of $%1$,3d is</string>
+  <string name="result_label">$%1$,3d</string>
+</resources>
