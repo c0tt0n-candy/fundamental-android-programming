@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
       val timeZone = data.getStringExtra(TimeZoneSelectActivity.EXT_TIME_ZONE)
 
       getSharedPreferences(PREF, Context.MODE_PRIVATE).apply {
-        val timeZones = getStringSet(KEY_TIME_ZONE, mutableSetOf()).apply {
+        val timeZones = getStringSet(KEY_TIME_ZONE, setOf()).toMutableSet().apply {
           add(timeZone)
         }
         edit().putStringSet(KEY_TIME_ZONE, timeZones).apply()
