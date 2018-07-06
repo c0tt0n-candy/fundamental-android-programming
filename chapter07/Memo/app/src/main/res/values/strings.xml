@@ -2,4 +2,5 @@
   <string name="app_name">Memo</string>
   <string name="save_label">保存する</string>
   <string name="content_hint">メモ</string>
+  <string name="last_modified">%1$tm月%1$td日 %1$tH時%1$tM分</string>
 </resources>
