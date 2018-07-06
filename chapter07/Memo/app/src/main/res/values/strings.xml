@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">Memo</string>
+  <string name="save_label">保存する</string>
+  <string name="content_hint">メモ</string>
 </resources>
