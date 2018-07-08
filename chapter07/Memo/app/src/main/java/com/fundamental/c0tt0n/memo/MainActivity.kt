@@ -70,7 +70,9 @@ class MainActivity : AppCompatActivity(), OnFileSelectListener, OnFileOutputList
 
   private fun setViews() {
     setContentView(R.layout.activity_main)
-    if (drawerLayout != null) setupDrawer(drawerLayout)
+    drawerLayout?.let {
+      setupDrawer(it)
+    }
   }
 
   private fun setupDrawer(drawer: DrawerLayout) {

@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_input.content
-import kotlinx.android.synthetic.main.fragment_input.save
+import android.widget.Button
+import android.widget.EditText
 import java.io.File
 
 class InputFragment : Fragment() {
@@ -35,11 +35,15 @@ class InputFragment : Fragment() {
   }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    val view = inflater.inflate(R.layout.fragment_input, container, false) ?: return null
+    val content = view.findViewById<EditText>(R.id.content)
+    val save = view.findViewById<Button>(R.id.save)
+
     save.setOnClickListener {
       currentFile = outputFiles(currentFile, content.text.toString())
       listener.onFileOutput()
     }
-    return inflater.inflate(R.layout.fragment_input, container, false)
+    return view
   }
 
   override fun onSaveInstanceState(outState: Bundle) {
@@ -51,6 +55,8 @@ class InputFragment : Fragment() {
 
   fun show(file: File) {
     val memo = inputFile(file)
+    val content = view?.findViewById<EditText>(R.id.content) ?: return
+
     content.setText(memo)
     currentFile = file
   }

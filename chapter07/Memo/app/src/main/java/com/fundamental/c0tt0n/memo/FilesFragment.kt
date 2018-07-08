@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_list.filesList
 import java.io.File
 
 class FilesFragment : Fragment() {
@@ -28,11 +27,12 @@ class FilesFragment : Fragment() {
   }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    recyclerView = filesList.apply {
+    val view = inflater.inflate(R.layout.fragment_list, container, false)
+    recyclerView = view.findViewById<RecyclerView>(R.id.filesList).apply {
       layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
     show()
-    return inflater.inflate(R.layout.fragment_list, container, false)
+    return view
   }
 
   fun show() {
