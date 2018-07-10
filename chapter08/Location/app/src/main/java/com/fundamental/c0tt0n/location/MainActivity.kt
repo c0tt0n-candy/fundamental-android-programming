@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import android.text.format.DateFormat
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
+    if (savedInstanceState != null && savedInstanceState.containsKey(KEY_CURRENT)) {
+      currentDate = savedInstanceState.getSerializable(KEY_CURRENT) as Calendar
+    }
+
     val mapFragment = supportFragmentManager.findFragmentById(R.id.map)
     if (mapFragment is SupportMapFragment) {
       mapFragment.getMapAsync {
@@ -36,6 +41,11 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
       }
       showCurrentDate()
     }
+  }
+
+  override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+    super.onSaveInstanceState(outState, outPersistentState)
+    outState?.putSerializable(KEY_CURRENT, currentDate)
   }
 
   // [DatePickerDialog.OnDateSetListener]
@@ -113,6 +123,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
   }
 
   companion object {
+    private const val KEY_CURRENT = "currentDate"
     private const val TAG_CALENDAR = "calendar"
     private const val DATE_FORMAT = "mm月 dd日"
   }
