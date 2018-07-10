@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Location</string>
+  <string name="switch_label">位置情報</string>
+  <string name="location_error_message">位置情報を取得することができません</string>
+</resources>
