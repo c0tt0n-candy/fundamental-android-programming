@@ -72,7 +72,7 @@ class SwitchFragment : Fragment() {
         } catch (exception: ApiException) {
           if (exception.statusCode == LocationSettingsStatusCodes.RESOLUTION_REQUIRED) {
             val resolvable = exception as ResolvableApiException
-            resolvable.startResolutionForResult(activity, 1)
+            resolvable.startResolutionForResult(activity, REQUEST_CODE)
           } else {
             showErrorMessage()
           }
@@ -90,7 +90,7 @@ class SwitchFragment : Fragment() {
 
         it.getSharedPreferences(PREF_LOCATION, Context.MODE_PRIVATE).edit().putBoolean(KEY_REQUEST, true).apply()
       } else {
-        requestPermissions(arrayOf(ACCESS_FINE_LOCATION), 1)
+        requestPermissions(arrayOf(ACCESS_FINE_LOCATION), 10)
       }
     } ?: return
   }
@@ -119,5 +119,7 @@ class SwitchFragment : Fragment() {
   companion object {
     private const val PREF_LOCATION = "LocationRequest"
     private const val KEY_REQUEST = "isRequesting"
+
+    const val REQUEST_CODE = 100
   }
 }

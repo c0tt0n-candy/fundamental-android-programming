@@ -1,5 +1,6 @@
 package com.fundamental.c0tt0n.location
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -27,6 +28,14 @@ class MainActivity : AppCompatActivity() {
         googleMap = it
         renderMap()
       }
+    }
+  }
+
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == SwitchFragment.REQUEST_CODE) {
+      val fragment = supportFragmentManager.findFragmentById(R.id.switch_fragment)
+      fragment?.onActivityResult(requestCode, resultCode, data)
     }
   }
 
