@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
   companion object {
     private const val KEY_CURRENT = "currentDate"
     private const val TAG_CALENDAR = "calendar"
-    private const val DATE_FORMAT = "mm月 dd日"
+    private const val DATE_FORMAT = "MM月 dd日"
   }
 }
 
